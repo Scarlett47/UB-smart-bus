@@ -1,124 +1,19 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import * as React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import HomeScreen from "./source/screen/home.js";
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+
+export default App = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.line}>
-        <View style={styles.line1}></View>
-        <View style={styles.line2}></View>
-      </View>
-      <View style={styles.widicon}>
-        <Image
-          style={styles.widicon1}
-          source={require("./assets/widicon.png")}
-        ></Image>
-      </View>
-      <Text style={styles.text1}>Нийтийн тээврийн үйлчилгээний мэдээлэл</Text>
-      <View style={styles.smcon}>
-        <View style={styles.smcon1}>
-          <Text style={styles.smtext1}>
-            <View style={styles.iconout}>
-              <Ionicons name="bus-outline" size={40} style={styles.icon}></Ionicons>
-            </View>
-          </Text>
-          <Text style={styles.smtext2}>Чиглэл хайх</Text>
-          <Text style={styles.smtext3}>sra</Text>
-        </View>
-        <View style={styles.smcon2}></View>
-        <View style={styles.smcon3}></View>
-      </View>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{headerShown:false}}>
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    marginTop: 30,
-  },
-  line: {
-    display: "flex",
-    flexDirection: "row",
-    height: 5,
-  },
-  line1: {
-    flex: 2,
-    backgroundColor: "orange",
-  },
-  line2: {
-    flex: 2,
-    backgroundColor: "purple",
-  },
-  widicon: {
-    display: "flex",
-    alignItems: "center",
-    paddingTop: 2,
-  },
-  widicon1: {
-    width: 160,
-    height: 50,
-    resizeMode: "contain",
-  },
-  text1: {
-    fontWeight: "bold",
-    textTransform: "uppercase",
-    textAlign: "center",
-    paddingTop: 5,
-    fontSize: 13,
-  },
-  smcon1: {
-    width: "100%",
-    height: 160,
-    backgroundColor: "purple",
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  smcon2: {
-    width: "100%",
-    height: 160,
-    backgroundColor: "gray",
-    flexDirection: "row",
-  },
-  smcon3: {
-    width: "100%",
-    height: 160,
-    flexDirection: "row",
-    backgroundColor: "orange",
-  },
-  smtext1: {
-    flex: 1,
-    marginLeft:10,
-    color: "white",
-    fontSize: 30,
-    fontWeight: "bold",
-  },
-  smtext2: {
-    color: "white",
-    flex: 1,
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  smtext3: {
-    color: "white",
-    flex: 1,
-    fontSize: 30,
-
-    fontWeight: "bold",
-  },
-  icon: {
-    position:"absolute",
-    left:9,
-    top:5,
-    color:"purple",
-  },
-  iconout:{
-    height:60,
-    width:60,
-    backgroundColor:"white",
-    borderRadius:60/2,
-  }
-});
+};

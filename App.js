@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image } from "react-native";
-import React from "react";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function App() {
   return (
@@ -18,7 +18,11 @@ export default function App() {
       <Text style={styles.text1}>Нийтийн тээврийн үйлчилгээний мэдээлэл</Text>
       <View style={styles.smcon}>
         <View style={styles.smcon1}>
-          <Text style={styles.smtext1}></Text>
+          <Text style={styles.smtext1}>
+            <View style={styles.iconout}>
+              <Ionicons name="bus-outline" size={40} style={styles.icon}></Ionicons>
+            </View>
+          </Text>
           <Text style={styles.smtext2}>Чиглэл хайх</Text>
           <Text style={styles.smtext3}>sra</Text>
         </View>
@@ -87,6 +91,7 @@ const styles = StyleSheet.create({
   },
   smtext1: {
     flex: 1,
+    marginLeft:10,
     color: "white",
     fontSize: 30,
     fontWeight: "bold",
@@ -104,4 +109,16 @@ const styles = StyleSheet.create({
 
     fontWeight: "bold",
   },
+  icon: {
+    position:"absolute",
+    left:9,
+    top:5,
+    color:"purple",
+  },
+  iconout:{
+    height:60,
+    width:60,
+    backgroundColor:"white",
+    borderRadius:60/2,
+  }
 });
